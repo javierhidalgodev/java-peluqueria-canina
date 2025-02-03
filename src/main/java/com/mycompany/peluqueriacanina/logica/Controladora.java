@@ -1,6 +1,7 @@
 package com.mycompany.peluqueriacanina.logica;
 
 import com.mycompany.peluqueriacanina.persistencia.ControladoraPersistencia;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -62,5 +63,13 @@ public class Controladora {
         cuidadorExistente.getMascotas().add(mascotaNueva);
         
         controladoraPersistencia.guardarMascota(mascotaNueva, cuidadorExistente);
+    }
+
+    public void guardarCuidador(String nombre, String telefono, String direccion, int DNI) {
+        List<Mascota> mascotas = new ArrayList<>();
+        
+        Cuidador nuevoCuidador = new Cuidador(DNI, nombre, telefono, direccion, mascotas);
+        
+        controladoraPersistencia.crearCuidador(nuevoCuidador);
     }
 }
