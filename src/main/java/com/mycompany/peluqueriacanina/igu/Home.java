@@ -5,6 +5,7 @@
 package com.mycompany.peluqueriacanina.igu;
 
 import com.mycompany.peluqueriacanina.logica.Controladora;
+import javax.swing.JFrame;
 
 /**
  *
@@ -59,6 +60,11 @@ public class Home extends javax.swing.JFrame {
 
         btnViewData.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnViewData.setText("Ver Datos");
+        btnViewData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewDataActionPerformed(evt);
+            }
+        });
 
         btnExit.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnExit.setText("Salir");
@@ -83,17 +89,18 @@ public class Home extends javax.swing.JFrame {
         pAccionesLayout.setVerticalGroup(
             pAccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pAccionesLayout.createSequentialGroup()
-                .addGap(223, 223, 223)
+                .addGap(109, 109, 109)
                 .addComponent(btnChargeData, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
+                .addGap(59, 59, 59)
                 .addComponent(btnViewData, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(53, 53, 53)
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pGeneral.add(pAcciones);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Javi\\Documents\\NetBeansProjects\\peluqueriaCanina\\src\\main\\java\\com\\mycompany\\peluqueriacanina\\images\\logo.jpg")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\frare\\Documents\\NetBeansProjects\\java-peluqueria-canina\\src\\main\\java\\com\\mycompany\\peluqueriacanina\\images\\logo.jpg")); // NOI18N
         jLabel2.setToolTipText("");
 
         javax.swing.GroupLayout pImageLayout = new javax.swing.GroupLayout(pImage);
@@ -101,16 +108,16 @@ public class Home extends javax.swing.JFrame {
         pImageLayout.setHorizontalGroup(
             pImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pImageLayout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addComponent(jLabel2)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addGap(93, 93, 93)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         pImageLayout.setVerticalGroup(
             pImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pImageLayout.createSequentialGroup()
-                .addGap(156, 156, 156)
-                .addComponent(jLabel2)
-                .addContainerGap(177, Short.MAX_VALUE))
+                .addGap(76, 76, 76)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(109, Short.MAX_VALUE))
         );
 
         pGeneral.add(pImage);
@@ -154,6 +161,13 @@ public class Home extends javax.swing.JFrame {
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnViewDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDataActionPerformed
+        SeleccionData seleccionData = new SeleccionData(Home.this);
+        seleccionData.setVisible(true);
+        
+        Home.this.setVisible(false);
+    }//GEN-LAST:event_btnViewDataActionPerformed
 
     /**
      * @param args the command line arguments
