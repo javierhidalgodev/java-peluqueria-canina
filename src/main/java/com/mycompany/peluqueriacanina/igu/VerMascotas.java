@@ -84,10 +84,10 @@ public class VerMascotas extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tData);
 
-        btnEdit.setIcon(new javax.swing.ImageIcon("C:\\Users\\frare\\Documents\\NetBeansProjects\\java-peluqueria-canina\\src\\main\\java\\com\\mycompany\\peluqueriacanina\\images\\edit-icon.png")); // NOI18N
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/peluqueriacanina/images/edit-icon.png"))); // NOI18N
         btnEdit.setToolTipText("Edit");
 
-        btnDelete.setIcon(new javax.swing.ImageIcon("C:\\Users\\frare\\Documents\\NetBeansProjects\\java-peluqueria-canina\\src\\main\\java\\com\\mycompany\\peluqueriacanina\\images\\delete-icon.png")); // NOI18N
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/peluqueriacanina/images/delete-icon.png"))); // NOI18N
         btnDelete.setToolTipText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

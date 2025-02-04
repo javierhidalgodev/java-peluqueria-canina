@@ -188,7 +188,7 @@ public class CargaMascota extends javax.swing.JFrame {
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
-        iCompany.setIcon(new javax.swing.ImageIcon("C:\\Users\\Javi\\Documents\\NetBeansProjects\\peluqueriaCanina\\src\\main\\java\\com\\mycompany\\peluqueriacanina\\images\\logo.jpg")); // NOI18N
+        iCompany.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/peluqueriacanina/images/logo.jpg"))); // NOI18N
 
         javax.swing.GroupLayout pImageLayout = new javax.swing.GroupLayout(pImage);
         pImage.setLayout(pImageLayout);

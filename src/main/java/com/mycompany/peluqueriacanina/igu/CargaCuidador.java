@@ -43,7 +43,6 @@ public class CargaCuidador extends javax.swing.JFrame {
         btnGrabar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(500, 500));
 
         lTitle.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         lTitle.setText("Peluquería Canina");

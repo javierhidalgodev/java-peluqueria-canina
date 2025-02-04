@@ -37,13 +37,14 @@ public class SeleccionCargaDatos extends javax.swing.JFrame {
         pPrincipal = new javax.swing.JPanel();
         pTitle = new javax.swing.JPanel();
         lTitle = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        lGeneral1 = new javax.swing.JLabel();
+        lGeneral = new javax.swing.JLabel();
         pGeneral = new javax.swing.JPanel();
         pCuidador = new javax.swing.JPanel();
         btnCuidador = new javax.swing.JButton();
-        lCuidador = new javax.swing.JLabel();
         pMascota = new javax.swing.JPanel();
         btnMascota = new javax.swing.JButton();
-        lMascota = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -57,85 +58,103 @@ public class SeleccionCargaDatos extends javax.swing.JFrame {
             .addGroup(pTitleLayout.createSequentialGroup()
                 .addGap(340, 340, 340)
                 .addComponent(lTitle)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(311, Short.MAX_VALUE))
         );
         pTitleLayout.setVerticalGroup(
             pTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pTitleLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(lTitle)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        lGeneral1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        lGeneral1.setText("Carga de datos");
+
+        lGeneral.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lGeneral.setText("Seleccione una de las opciones");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(355, 355, 355)
+                .addComponent(lGeneral)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lGeneral1)
+                .addGap(400, 400, 400))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(lGeneral1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lGeneral)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pGeneral.setLayout(new java.awt.GridLayout(1, 0));
 
         btnCuidador.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btnCuidador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/peluqueriacanina/images/cuidador.png"))); // NOI18N
         btnCuidador.setText("Cuidador");
+        btnCuidador.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCuidador.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnCuidador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCuidadorActionPerformed(evt);
             }
         });
 
-        lCuidador.setIcon(new javax.swing.ImageIcon("C:\\Users\\Javi\\Documents\\NetBeansProjects\\peluqueriaCanina\\src\\main\\java\\com\\mycompany\\peluqueriacanina\\images\\cuidador.png")); // NOI18N
-
         javax.swing.GroupLayout pCuidadorLayout = new javax.swing.GroupLayout(pCuidador);
         pCuidador.setLayout(pCuidadorLayout);
         pCuidadorLayout.setHorizontalGroup(
             pCuidadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pCuidadorLayout.createSequentialGroup()
-                .addGroup(pCuidadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pCuidadorLayout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(lCuidador, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pCuidadorLayout.createSequentialGroup()
-                        .addGap(188, 188, 188)
-                        .addComponent(btnCuidador)))
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addGap(62, 62, 62)
+                .addComponent(btnCuidador, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         pCuidadorLayout.setVerticalGroup(
             pCuidadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pCuidadorLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(lCuidador, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnCuidador)
-                .addContainerGap(43, Short.MAX_VALUE))
+            .addGroup(pCuidadorLayout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addComponent(btnCuidador, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(115, Short.MAX_VALUE))
         );
 
         pGeneral.add(pCuidador);
 
         btnMascota.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btnMascota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/peluqueriacanina/images/dog-face-logo-free-vector.jpg"))); // NOI18N
         btnMascota.setText("Mascota");
+        btnMascota.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnMascota.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnMascota.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMascotaActionPerformed(evt);
             }
         });
 
-        lMascota.setIcon(new javax.swing.ImageIcon("C:\\Users\\Javi\\Documents\\NetBeansProjects\\peluqueriaCanina\\src\\main\\java\\com\\mycompany\\peluqueriacanina\\images\\dog-face-logo-free-vector.jpg")); // NOI18N
-
         javax.swing.GroupLayout pMascotaLayout = new javax.swing.GroupLayout(pMascota);
         pMascota.setLayout(pMascotaLayout);
         pMascotaLayout.setHorizontalGroup(
             pMascotaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pMascotaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnMascota)
-                .addGap(191, 191, 191))
-            .addGroup(pMascotaLayout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addComponent(lMascota, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE)
+                .addComponent(btnMascota, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55))
         );
         pMascotaLayout.setVerticalGroup(
             pMascotaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pMascotaLayout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
-                .addComponent(lMascota, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnMascota)
-                .addGap(43, 43, 43))
+            .addGroup(pMascotaLayout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(btnMascota, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(109, Short.MAX_VALUE))
         );
 
         pGeneral.add(pMascota);
@@ -145,15 +164,20 @@ public class SeleccionCargaDatos extends javax.swing.JFrame {
         pPrincipalLayout.setHorizontalGroup(
             pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(pTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pPrincipalLayout.createSequentialGroup()
+                .addGroup(pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(pTitle, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         pPrincipalLayout.setVerticalGroup(
             pPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pPrincipalLayout.createSequentialGroup()
                 .addComponent(pTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -214,8 +238,9 @@ public class SeleccionCargaDatos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCuidador;
     private javax.swing.JButton btnMascota;
-    private javax.swing.JLabel lCuidador;
-    private javax.swing.JLabel lMascota;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lGeneral;
+    private javax.swing.JLabel lGeneral1;
     private javax.swing.JLabel lTitle;
     private javax.swing.JPanel pCuidador;
     private javax.swing.JPanel pGeneral;

@@ -92,7 +92,7 @@ public class VerCuidadores extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tData);
 
-        btnEdit.setIcon(new javax.swing.ImageIcon("C:\\Users\\frare\\Documents\\NetBeansProjects\\java-peluqueria-canina\\src\\main\\java\\com\\mycompany\\peluqueriacanina\\images\\edit-icon.png")); // NOI18N
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/peluqueriacanina/images/edit-icon.png"))); // NOI18N
         btnEdit.setToolTipText("Edit");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,7 +100,7 @@ public class VerCuidadores extends javax.swing.JFrame {
             }
         });
 
-        btnDelete.setIcon(new javax.swing.ImageIcon("C:\\Users\\frare\\Documents\\NetBeansProjects\\java-peluqueria-canina\\src\\main\\java\\com\\mycompany\\peluqueriacanina\\images\\delete-icon.png")); // NOI18N
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/peluqueriacanina/images/delete-icon.png"))); // NOI18N
         btnDelete.setToolTipText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,7 +173,7 @@ public class VerCuidadores extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void initTable() {
+    public void initTable() {
 
         DefaultTableModel tabla = new DefaultTableModel() {
 
@@ -205,19 +205,25 @@ public class VerCuidadores extends javax.swing.JFrame {
     }
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+
         if (tData.getRowCount() > 0) {
             if (tData.getSelectedRow() != -1) {
-                int selectedRow = tData.getSelectedRow();
-                int DNI = (int) tData.getValueAt(selectedRow, 0);
+                int confirmacion = JOptionPane.showConfirmDialog(pPrincipal, "¿Está seguro que desea eliminar este cuidador? El resultado de la operación borrará también todas las mascotas asociadas.", "Borrando cuidador...", 0);
 
-                try {
-                    controladora.eliminarCuidador(DNI);
+                if (confirmacion == JOptionPane.YES_OPTION) {
+                    int selectedRow = tData.getSelectedRow();
+                    int DNI = (int) tData.getValueAt(selectedRow, 0);
 
-                    initTable();
-                    JOptionPane.showMessageDialog(tData, "Cuidador eliminado exitósamente", "Usuario eliminado", JOptionPane.INFORMATION_MESSAGE);
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(tData, "Hubo algún problema a la hora de eliminar el cuidador. Inténtelo de nuevo más tarde o revise su conexión.", "Error al eliminar", JOptionPane.ERROR_MESSAGE);
+                    try {
+                        controladora.eliminarCuidador(DNI);
+
+                        initTable();
+                        JOptionPane.showMessageDialog(tData, "Cuidador eliminado exitósamente", "Usuario eliminado", JOptionPane.INFORMATION_MESSAGE);
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(tData, "Hubo algún problema a la hora de eliminar el cuidador. Inténtelo de nuevo más tarde o revise su conexión.", "Error al eliminar", JOptionPane.ERROR_MESSAGE);
+                    }
                 }
+
             } else {
                 JOptionPane.showMessageDialog(tData, "Seleccione el usuario que desea eliminar", "Falta selección", JOptionPane.WARNING_MESSAGE);
             }
@@ -231,13 +237,16 @@ public class VerCuidadores extends javax.swing.JFrame {
                 int DNI = (int) tData.getValueAt(selectedRow, 0);
 
                 try {
-                    controladora.eliminarCuidador(DNI);
+                    Cuidador cuidador = controladora.encontrarCuidador(DNI);
 
-                    initTable();
-                    JOptionPane.showMessageDialog(tData, "Cuidador eliminado exitósamente", "Usuario eliminado", JOptionPane.INFORMATION_MESSAGE);
+                    EditCuidador editCuidador = new EditCuidador(controladora, cuidador, VerCuidadores.this);
+                    editCuidador.setVisible(true);
+
+                    setEnabled(false);
                 } catch (Exception e) {
-                    JOptionPane.showMessageDialog(tData, "Hubo algún problema a la hora de eliminar el cuidador. Inténtelo de nuevo más tarde o revise su conexión.", "Error al eliminar", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(pPrincipal, "Ahora mimo no se puede realizar esa operación. Inténtelo de nuevo más tarde", "Error desconocido", 0);
                 }
+
             } else {
                 JOptionPane.showMessageDialog(tData, "Seleccione el usuario que desea eliminar", "Falta selección", JOptionPane.WARNING_MESSAGE);
             }
