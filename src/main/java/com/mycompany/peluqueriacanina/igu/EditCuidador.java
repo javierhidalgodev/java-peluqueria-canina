@@ -26,6 +26,7 @@ public class EditCuidador extends javax.swing.JFrame {
 
         initComponents();
         setLocationRelativeTo(null);
+        setTitle("Editor de cuidadores");
 
         txtNombre.setText(cuidador.getNombre());
         txtTelefono.setText(cuidador.getTelefono());

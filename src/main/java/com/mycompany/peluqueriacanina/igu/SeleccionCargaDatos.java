@@ -23,6 +23,7 @@ public class SeleccionCargaDatos extends javax.swing.JFrame {
         this.ventanaAnterior = ventanaAnterior;
         initComponents();
         setLocationRelativeTo(null);
+        setTitle("Carga de datos");
     }
 
     /**

@@ -1,6 +1,7 @@
 package com.mycompany.peluqueriacanina.igu;
 
 import com.mycompany.peluqueriacanina.logica.Controladora;
+import com.mycompany.peluqueriacanina.logica.Cuidador;
 import com.mycompany.peluqueriacanina.logica.Mascota;
 import java.util.List;
 import javax.swing.JFrame;
@@ -22,6 +23,7 @@ public class VerMascotas extends javax.swing.JFrame {
 
         initComponents();
         setLocationRelativeTo(null);
+        setTitle("Registro de Mascotas");
 
         initTable();
     }
@@ -86,6 +88,11 @@ public class VerMascotas extends javax.swing.JFrame {
 
         btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/edit-icon.png"))); // NOI18N
         btnEdit.setToolTipText("Edit");
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditActionPerformed(evt);
+            }
+        });
 
         btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/delete-icon.png"))); // NOI18N
         btnDelete.setToolTipText("Delete");
@@ -163,22 +170,50 @@ public class VerMascotas extends javax.swing.JFrame {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         if (tData.getRowCount() > 0) {
             if (tData.getSelectedRow() != -1) {
-                int selectedRow = tData.getSelectedRow();
-                int numCliente = (int) tData.getValueAt(selectedRow, 0);
+                int confirmacion = JOptionPane.showConfirmDialog(pPrincipal, "¿Está seguro que desea eliminar esta registro?", "Borrando registro...", 0);
 
-                try {
-                    controladora.eliminarMascota(numCliente);
+                if (confirmacion == JOptionPane.YES_OPTION) {
+                    int selectedRow = tData.getSelectedRow();
+                    int numeroCliente = (int) tData.getValueAt(selectedRow, 0);
 
-                    initTable();
-                    JOptionPane.showMessageDialog(tData, "Cuidador eliminado exitósamente", "Usuario eliminado", JOptionPane.INFORMATION_MESSAGE);
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(tData, "Hubo algún problema a la hora de eliminar el cuidador. Inténtelo de nuevo más tarde o revise su conexión.", "Error al eliminar", JOptionPane.ERROR_MESSAGE);
+                    try {
+                        controladora.eliminarMascota(numeroCliente);
+
+                        initTable();
+                        JOptionPane.showMessageDialog(tData, "Registro eliminado exitósamente", "Registro eliminada", JOptionPane.INFORMATION_MESSAGE);
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(tData, "Hubo algún problema a la hora de eliminar el registro. Inténtelo de nuevo más tarde o revise su conexión.", "Error al eliminar", JOptionPane.ERROR_MESSAGE);
+                    }
                 }
+
             } else {
-                JOptionPane.showMessageDialog(tData, "Seleccione el usuario que desea eliminar", "Falta selección", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(tData, "Seleccione el registro que desea eliminar", "Falta selección...", JOptionPane.WARNING_MESSAGE);
             }
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        if (tData.getRowCount() > 0) {
+            if (tData.getSelectedRow() != -1) {
+                int selectedRow = tData.getSelectedRow();
+                int numeroCliente = (int) tData.getValueAt(selectedRow, 0);
+
+                try {
+                    Mascota mascota = controladora.encontrarMascota(numeroCliente);
+
+                    EditMascota editMascota = new EditMascota(controladora, mascota, VerMascotas.this);
+                    editMascota.setVisible(true);
+
+                    setEnabled(false);
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(pPrincipal, "Ahora mimo no se puede realizar esa operación. Inténtelo de nuevo más tarde", "Error desconocido", 0);
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(tData, "Seleccione el registro que desea editar", "Falta selección", JOptionPane.WARNING_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_btnEditActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
@@ -192,7 +227,7 @@ public class VerMascotas extends javax.swing.JFrame {
     private javax.swing.JTable tData;
     // End of variables declaration//GEN-END:variables
 
-    private void initTable() {
+    public void initTable() {
 
         List<Mascota> mascotas = controladora.encontrarMascotas();
 
@@ -219,7 +254,7 @@ public class VerMascotas extends javax.swing.JFrame {
             Object[] objeto = {"No hay data"};
             tabla.addRow(objeto);
         }
-        
+
         tData.setModel(tabla);
     }
 }

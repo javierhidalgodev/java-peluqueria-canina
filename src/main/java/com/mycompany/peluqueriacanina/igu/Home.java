@@ -18,7 +18,7 @@ public class Home extends javax.swing.JFrame {
      */
     public Home() {
         initComponents();
-        setTitle("INICIO");
+        setTitle("Peluquería canina");
         setLocationRelativeTo(null);
     }
 

@@ -26,7 +26,7 @@ public class CargaMascota extends javax.swing.JFrame {
         this.ventanaAnterior = ventanaAnterior;
 
         initComponents();
-        setTitle("Peluquería canina");
+        setTitle("Nueva mascota");
         setLocationRelativeTo(null);
     }
 

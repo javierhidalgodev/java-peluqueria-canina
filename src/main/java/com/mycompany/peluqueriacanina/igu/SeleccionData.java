@@ -21,6 +21,7 @@ public class SeleccionData extends javax.swing.JFrame {
         
         initComponents();
         setLocationRelativeTo(null);
+        setTitle("Visualización de datos");
     }
 
     @SuppressWarnings("unchecked")

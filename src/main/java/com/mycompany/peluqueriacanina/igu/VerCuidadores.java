@@ -30,6 +30,7 @@ public class VerCuidadores extends javax.swing.JFrame {
 
         initComponents();
         setLocationRelativeTo(null);
+        setTitle("Registro de cuidadores");
 
         initTable();
     }
@@ -205,7 +206,6 @@ public class VerCuidadores extends javax.swing.JFrame {
     }
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-
         if (tData.getRowCount() > 0) {
             if (tData.getSelectedRow() != -1) {
                 int confirmacion = JOptionPane.showConfirmDialog(pPrincipal, "¿Está seguro que desea eliminar este cuidador? El resultado de la operación borrará también todas las mascotas asociadas.", "Borrando cuidador...", 0);
@@ -218,14 +218,14 @@ public class VerCuidadores extends javax.swing.JFrame {
                         controladora.eliminarCuidador(DNI);
 
                         initTable();
-                        JOptionPane.showMessageDialog(tData, "Cuidador eliminado exitósamente", "Usuario eliminado", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(tData, "Regstro eliminado exitósamente", "Registro eliminado", JOptionPane.INFORMATION_MESSAGE);
                     } catch (Exception e) {
-                        JOptionPane.showMessageDialog(tData, "Hubo algún problema a la hora de eliminar el cuidador. Inténtelo de nuevo más tarde o revise su conexión.", "Error al eliminar", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(tData, "Hubo algún problema a la hora de eliminar el registro. Inténtelo de nuevo más tarde o revise su conexión.", "Error al eliminar", JOptionPane.ERROR_MESSAGE);
                     }
                 }
 
             } else {
-                JOptionPane.showMessageDialog(tData, "Seleccione el usuario que desea eliminar", "Falta selección", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(tData, "Seleccione el registro que desea eliminar", "Falta selección", JOptionPane.WARNING_MESSAGE);
             }
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
@@ -248,7 +248,7 @@ public class VerCuidadores extends javax.swing.JFrame {
                 }
 
             } else {
-                JOptionPane.showMessageDialog(tData, "Seleccione el usuario que desea eliminar", "Falta selección", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(tData, "Seleccione el registro que desea editar", "Falta selección", JOptionPane.WARNING_MESSAGE);
             }
         }
     }//GEN-LAST:event_btnEditActionPerformed
