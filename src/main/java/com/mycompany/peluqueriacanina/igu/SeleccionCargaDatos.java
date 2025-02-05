@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package com.mycompany.peluqueriacanina.igu;
 
 import com.mycompany.peluqueriacanina.logica.Controladora;
@@ -116,17 +112,17 @@ public class SeleccionCargaDatos extends javax.swing.JFrame {
         pCuidador.setLayout(pCuidadorLayout);
         pCuidadorLayout.setHorizontalGroup(
             pCuidadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pCuidadorLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pCuidadorLayout.createSequentialGroup()
+                .addContainerGap(92, Short.MAX_VALUE)
                 .addComponent(btnCuidador, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addGap(39, 39, 39))
         );
         pCuidadorLayout.setVerticalGroup(
             pCuidadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pCuidadorLayout.createSequentialGroup()
-                .addGap(81, 81, 81)
+                .addGap(77, 77, 77)
                 .addComponent(btnCuidador, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
 
         pGeneral.add(pCuidador);
@@ -146,17 +142,17 @@ public class SeleccionCargaDatos extends javax.swing.JFrame {
         pMascota.setLayout(pMascotaLayout);
         pMascotaLayout.setHorizontalGroup(
             pMascotaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pMascotaLayout.createSequentialGroup()
-                .addContainerGap(69, Short.MAX_VALUE)
+            .addGroup(pMascotaLayout.createSequentialGroup()
+                .addGap(37, 37, 37)
                 .addComponent(btnMascota, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
         pMascotaLayout.setVerticalGroup(
             pMascotaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pMascotaLayout.createSequentialGroup()
-                .addGap(85, 85, 85)
+                .addGap(76, 76, 76)
                 .addComponent(btnMascota, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
         pGeneral.add(pMascota);

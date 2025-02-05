@@ -1,7 +1,6 @@
 package com.mycompany.peluqueriacanina.igu;
 
 import com.mycompany.peluqueriacanina.logica.Controladora;
-import com.mycompany.peluqueriacanina.logica.Cuidador;
 import com.mycompany.peluqueriacanina.logica.Mascota;
 import java.util.List;
 import javax.swing.JFrame;
@@ -249,10 +248,17 @@ public class VerMascotas extends javax.swing.JFrame {
                 Object[] objeto = {m.getNum_cliente(), m.getNombre_mascota(), m.getRaza(), m.getColor(), m.isAlergico(), m.isAtencion_especial(), m.getObservaciones(), m.getCuidador().getId_cuidador()};
 
                 tabla.addRow(objeto);
+
             }
+            
+            btnDelete.setEnabled(true);
+            btnEdit.setEnabled(true);
         } else {
             Object[] objeto = {"No hay data"};
             tabla.addRow(objeto);
+
+            btnDelete.setEnabled(false);
+            btnEdit.setEnabled(false);
         }
 
         tData.setModel(tabla);

@@ -6,7 +6,6 @@ package com.mycompany.peluqueriacanina.igu;
 
 import com.mycompany.peluqueriacanina.logica.Controladora;
 import com.mycompany.peluqueriacanina.logica.Cuidador;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**

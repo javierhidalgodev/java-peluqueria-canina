@@ -1,13 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package com.mycompany.peluqueriacanina.igu;
 
 import com.mycompany.peluqueriacanina.logica.Controladora;
 import com.mycompany.peluqueriacanina.logica.Cuidador;
+import com.mycompany.peluqueriacanina.logica.Mascota;
 import java.util.List;
-import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -195,11 +191,21 @@ public class VerCuidadores extends javax.swing.JFrame {
             for (Cuidador cuidador : cuidadores) {
                 Object[] object = {cuidador.getId_cuidador(), cuidador.getNombre(), cuidador.getTelefono(), cuidador.getDireccion()};
 
+                for(Mascota m : cuidador.getMascotas()) {
+                    System.out.println(m.toString());
+                }
+                
                 tabla.addRow(object);
             }
+            
+            btnEdit.setEnabled(true);
+            btnDelete.setEnabled(true);
         } else {
             Object[] object = {"No hay datos todavía", "", "", ""};
             tabla.addRow(object);
+            
+            btnEdit.setEnabled(false);
+            btnDelete.setEnabled(false);
         }
 
         tData.setModel(tabla);

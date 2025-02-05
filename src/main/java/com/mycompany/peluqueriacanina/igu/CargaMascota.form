@@ -109,19 +109,17 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lClienteID" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="lNombre" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="lRaza" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="lColor" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="lAlergico" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="comboAlergico" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtNombre" alignment="0" pref="324" max="32767" attributes="0"/>
                                   <Component id="txtRaza" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtColor" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtCliente" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -148,12 +146,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lClienteID" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtNombre" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -194,14 +187,6 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="lClienteID">
-              <Properties>
-                <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                  <ComponentRef name="txtCliente"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Cliente n&#xba;:"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="lNombre">
               <Properties>
                 <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
@@ -293,8 +278,6 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="txtDNIDuenio">
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtCliente">
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
               <AuxValues>

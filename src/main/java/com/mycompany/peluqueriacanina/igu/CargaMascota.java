@@ -6,10 +6,8 @@ package com.mycompany.peluqueriacanina.igu;
 
 import com.mycompany.peluqueriacanina.logica.Controladora;
 import com.mycompany.peluqueriacanina.logica.Cuidador;
-import com.mycompany.peluqueriacanina.logica.Mascota;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
 /**
  *
@@ -38,7 +36,6 @@ public class CargaMascota extends javax.swing.JFrame {
         pTitle = new javax.swing.JPanel();
         lTitle = new javax.swing.JLabel();
         pForm = new javax.swing.JPanel();
-        lClienteID = new javax.swing.JLabel();
         lNombre = new javax.swing.JLabel();
         lRaza = new javax.swing.JLabel();
         lColor = new javax.swing.JLabel();
@@ -52,7 +49,6 @@ public class CargaMascota extends javax.swing.JFrame {
         comboAlergico = new javax.swing.JComboBox<>();
         comboAtencionEspecial = new javax.swing.JComboBox<>();
         txtDNIDuenio = new javax.swing.JTextField();
-        txtCliente = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtObservaciones = new javax.swing.JTextArea();
         pImage = new javax.swing.JPanel();
@@ -82,9 +78,6 @@ public class CargaMascota extends javax.swing.JFrame {
                 .addComponent(lTitle)
                 .addGap(30, 30, 30))
         );
-
-        lClienteID.setLabelFor(txtCliente);
-        lClienteID.setText("Cliente nº:");
 
         lNombre.setLabelFor(txtNombre);
         lNombre.setText("Nombre:");
@@ -124,18 +117,16 @@ public class CargaMascota extends javax.swing.JFrame {
                 .addGroup(pFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pFormLayout.createSequentialGroup()
                         .addGroup(pFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lClienteID)
                             .addComponent(lNombre)
                             .addComponent(lRaza)
                             .addComponent(lColor)
                             .addComponent(lAlergico))
-                        .addGap(59, 59, 59)
+                        .addGap(67, 67, 67)
                         .addGroup(pFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(comboAlergico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
                             .addComponent(txtRaza)
-                            .addComponent(txtColor)
-                            .addComponent(txtCliente)))
+                            .addComponent(txtColor)))
                     .addGroup(pFormLayout.createSequentialGroup()
                         .addGroup(pFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lAtencionEspecial)
@@ -153,11 +144,7 @@ public class CargaMascota extends javax.swing.JFrame {
         pFormLayout.setVerticalGroup(
             pFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pFormLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(pFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lClienteID)
-                    .addComponent(txtCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(68, 68, 68)
                 .addGroup(pFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lNombre)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -296,7 +283,6 @@ public class CargaMascota extends javax.swing.JFrame {
         int confirm = JOptionPane.showConfirmDialog(pForm, "¿Estás seguro de que quieres limpiar el formulario?", "Limpiar formulario", JOptionPane.YES_NO_OPTION);
 
         if (confirm == 0) {
-            txtCliente.setText("");
             txtColor.setText("");
             txtNombre.setText("");
             txtDNIDuenio.setText("");
@@ -308,7 +294,7 @@ public class CargaMascota extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private boolean isFormValid() {
-        boolean isValid = txtCliente.getText().trim().isEmpty() || txtColor.getText().trim().isEmpty() || txtNombre.getText().trim().isEmpty() || txtDNIDuenio.getText().trim().isEmpty() || txtObservaciones.getText().trim().isEmpty() || txtRaza.getText().trim().isEmpty() || comboAlergico.getSelectedItem().equals("---") || comboAtencionEspecial.getSelectedItem().equals("---");
+        boolean isValid = txtColor.getText().trim().isEmpty() || txtNombre.getText().trim().isEmpty() || txtDNIDuenio.getText().trim().isEmpty() || txtObservaciones.getText().trim().isEmpty() || txtRaza.getText().trim().isEmpty() || comboAlergico.getSelectedItem().equals("---") || comboAtencionEspecial.getSelectedItem().equals("---");
 
         return isValid;
     }
@@ -316,7 +302,7 @@ public class CargaMascota extends javax.swing.JFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         if (!isFormValid()) {
             // 1. Se recupera la data del formulario
-            int idCliente = Integer.parseInt(txtCliente.getText());
+            int idCliente = 0;
             String color = txtColor.getText();
             String nombre = txtNombre.getText();
             int dni_duenio = Integer.parseInt(txtDNIDuenio.getText());
@@ -351,7 +337,6 @@ public class CargaMascota extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lAlergico;
     private javax.swing.JLabel lAtencionEspecial;
-    private javax.swing.JLabel lClienteID;
     private javax.swing.JLabel lColor;
     private javax.swing.JLabel lDNIDuenio;
     private javax.swing.JLabel lNombre;
@@ -363,7 +348,6 @@ public class CargaMascota extends javax.swing.JFrame {
     private javax.swing.JPanel pImage;
     private javax.swing.JPanel pPrincipal;
     private javax.swing.JPanel pTitle;
-    private javax.swing.JTextField txtCliente;
     private javax.swing.JTextField txtColor;
     private javax.swing.JTextField txtDNIDuenio;
     private javax.swing.JTextField txtNombre;
