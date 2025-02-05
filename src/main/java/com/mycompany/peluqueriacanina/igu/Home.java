@@ -100,7 +100,7 @@ public class Home extends javax.swing.JFrame {
 
         pGeneral.add(pAcciones);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/peluqueriacanina/images/logo.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.jpg"))); // NOI18N
         jLabel2.setToolTipText("");
 
         javax.swing.GroupLayout pImageLayout = new javax.swing.GroupLayout(pImage);

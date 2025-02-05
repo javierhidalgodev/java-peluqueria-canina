@@ -188,23 +188,23 @@ public class CargaMascota extends javax.swing.JFrame {
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
-        iCompany.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/peluqueriacanina/images/logo.jpg"))); // NOI18N
+        iCompany.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dog-face-logo-free-vector.jpg"))); // NOI18N
 
         javax.swing.GroupLayout pImageLayout = new javax.swing.GroupLayout(pImage);
         pImage.setLayout(pImageLayout);
         pImageLayout.setHorizontalGroup(
             pImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pImageLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
+                .addGap(30, 30, 30)
                 .addComponent(iCompany)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         pImageLayout.setVerticalGroup(
             pImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pImageLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pImageLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(iCompany)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(60, 60, 60))
         );
 
         btnLimpiar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N

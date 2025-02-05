@@ -62,7 +62,7 @@ public class SeleccionData extends javax.swing.JFrame {
         lGeneral.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lGeneral.setText("Seleccione una de las opciones");
 
-        btnMascotas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/peluqueriacanina/images/dog-face-logo-free-vectorx100.jpg"))); // NOI18N
+        btnMascotas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dog-face-logo-free-vectorx100.jpg"))); // NOI18N
         btnMascotas.setText("MASCOTAS");
         btnMascotas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnMascotas.setIconTextGap(10);
@@ -73,7 +73,7 @@ public class SeleccionData extends javax.swing.JFrame {
             }
         });
 
-        btnCuidadores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/peluqueriacanina/images/cuidadorx100.png"))); // NOI18N
+        btnCuidadores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cuidadorx100.png"))); // NOI18N
         btnCuidadores.setText("CUIDADORES");
         btnCuidadores.setAlignmentX(0.5F);
         btnCuidadores.setAlignmentY(0.0F);
