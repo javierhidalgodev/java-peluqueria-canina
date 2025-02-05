@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package com.mycompany.peluqueriacanina.igu;
 
 import com.mycompany.peluqueriacanina.logica.Controladora;
@@ -186,27 +182,39 @@ public class EditCuidador extends javax.swing.JFrame {
         super.dispose();
     }
 
+    private boolean isFormValid() {
+        boolean isValid = !txtNombre.getText().trim().isEmpty() && !txtTelefono.getText().trim().isEmpty() && !txtDireccion.getText().trim().isEmpty();
+        
+        System.out.println(isValid);
+        
+        return isValid;
+    }
+
     private void btnGrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGrabarActionPerformed
-        int confirmacion = JOptionPane.showConfirmDialog(pPrincipal, "¿Está seguro que desea editar el contacto?", "Editando...", JOptionPane.YES_NO_OPTION);
+        if (!isFormValid()) {
+            JOptionPane.showMessageDialog(pPrincipal, "Todos los campos marcados con * son obligatorios.", "Hay campos requeridos en blanco", JOptionPane.WARNING_MESSAGE);
+        } else {
+            int confirmacion = JOptionPane.showConfirmDialog(pPrincipal, "¿Está seguro que desea editar el contacto?", "Editando...", JOptionPane.YES_NO_OPTION);
 
-        if (confirmacion == 0) {
-            String nombre = txtNombre.getText();
-            String telefono = txtTelefono.getText();
-            String direccion = txtDireccion.getText();
+            if (confirmacion == 0) {
+                String nombre = txtNombre.getText();
+                String telefono = txtTelefono.getText();
+                String direccion = txtDireccion.getText();
 
-            cuidador.setNombre(nombre);
-            cuidador.setTelefono(telefono);
-            cuidador.setDireccion(direccion);
+                cuidador.setNombre(nombre);
+                cuidador.setTelefono(telefono);
+                cuidador.setDireccion(direccion);
 
-            try {
-                controladora.editarCuidador(cuidador);
-                ventanaAnterior.setEnabled(true);
-                ventanaAnterior.initTable();
+                try {
+                    controladora.editarCuidador(cuidador);
+                    ventanaAnterior.setEnabled(true);
+                    ventanaAnterior.initTable();
 
-                JOptionPane.showMessageDialog(pPrincipal, "Cuidador editado correctamente", "Edición completada", JOptionPane.INFORMATION_MESSAGE);
-                dispose();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(pPrincipal, "Algo fue mal...", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(pPrincipal, "Cuidador editado correctamente", "Edición completada", JOptionPane.INFORMATION_MESSAGE);
+                    dispose();
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(pPrincipal, "Algo fue mal...", "Error", JOptionPane.ERROR_MESSAGE);
+                }
             }
         }
     }//GEN-LAST:event_btnGrabarActionPerformed

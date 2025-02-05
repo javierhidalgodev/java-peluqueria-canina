@@ -1,7 +1,10 @@
 package com.mycompany.peluqueriacanina.igu;
 
+import com.mycompany.peluqueriacanina.igu.utils.FormValidator;
 import com.mycompany.peluqueriacanina.logica.Controladora;
 import com.mycompany.peluqueriacanina.logica.Cuidador;
+import java.util.Map;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -191,24 +194,35 @@ public class CargaCuidador extends javax.swing.JFrame {
     }
 
     private void btnGrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGrabarActionPerformed
-        String nombre = txtNombre.getText();
-        String telefono = txtTelefono.getText();
-        String direccion = txtDireccion.getText();
-        int DNI = Integer.parseInt(txtDNI.getText());
+        Map<JComponent, String> errors = FormValidator.validateForm(txtNombre, txtTelefono, txtDireccion, txtDNI);
 
-        Cuidador cuidadorExistente = controladora.encontrarCuidador(DNI);
+        if (errors.isEmpty()) {
+            String nombre = txtNombre.getText();
+            String telefono = txtTelefono.getText();
+            String direccion = txtDireccion.getText();
+            int DNI = Integer.parseInt(txtDNI.getText());
 
-        System.out.println(cuidadorExistente);
-        if (cuidadorExistente == null) {
-            try {
-                controladora.guardarCuidador(nombre, telefono, direccion, DNI);
-                JOptionPane.showMessageDialog(pPrincipal, "Cuidador añadido correctamente", "Nuevo cuidador añadido", JOptionPane.INFORMATION_MESSAGE);
-                dispose();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(pPrincipal, "Algo fue mal...", "Error", JOptionPane.ERROR_MESSAGE);
+            Cuidador cuidadorExistente = controladora.encontrarCuidador(DNI);
+
+            System.out.println(cuidadorExistente);
+            if (cuidadorExistente == null) {
+                try {
+                    controladora.guardarCuidador(nombre, telefono, direccion, DNI);
+                    JOptionPane.showMessageDialog(pPrincipal, "Cuidador añadido correctamente", "Nuevo cuidador añadido", JOptionPane.INFORMATION_MESSAGE);
+                    dispose();
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(pPrincipal, "Algo fue mal...", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(pPrincipal, "El usuario que intenta registrar ya existe", "Usuario ya registrado", JOptionPane.INFORMATION_MESSAGE);
             }
         } else {
-            JOptionPane.showMessageDialog(pPrincipal, "El usuario que intenta registrar ya existe", "Usuario ya registrado", JOptionPane.INFORMATION_MESSAGE);
+            for(Map.Entry<JComponent, String> entry : errors.entrySet()) {
+                System.out.println(entry.getValue());
+            }
+            
+            JOptionPane.showMessageDialog(pPrincipal, "Todos los campos marcados con * son obligatorios.", "Falta información", JOptionPane.WARNING_MESSAGE);
+
         }
     }//GEN-LAST:event_btnGrabarActionPerformed
 
