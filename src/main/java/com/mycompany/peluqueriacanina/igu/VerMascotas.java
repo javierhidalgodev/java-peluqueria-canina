@@ -245,7 +245,8 @@ public class VerMascotas extends javax.swing.JFrame {
         if (mascotas.size() > 0) {
 
             for (Mascota m : mascotas) {
-                Object[] objeto = {m.getNum_cliente(), m.getNombre_mascota(), m.getRaza(), m.getColor(), m.isAlergico(), m.isAtencion_especial(), m.getObservaciones(), m.getCuidador().getId_cuidador()};
+     
+                Object[] objeto = {m.getNum_cliente(), m.getNombre_mascota(), m.getRaza(), m.getColor(), m.isAlergico() ? "Sí" : "No", m.isAtencion_especial() ? "Sí" : "No", m.getObservaciones(), m.getCuidador().getId_cuidador()};
 
                 tabla.addRow(objeto);
 
