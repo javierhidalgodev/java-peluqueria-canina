@@ -2,6 +2,9 @@ package com.mycompany.peluqueriacanina.igu;
 
 import com.mycompany.peluqueriacanina.logica.Controladora;
 import com.mycompany.peluqueriacanina.logica.Cuidador;
+import com.mycompany.peluqueriacanina.utils.FormValidator;
+import java.util.Map;
+import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 
 /**
@@ -182,18 +185,10 @@ public class EditCuidador extends javax.swing.JFrame {
         super.dispose();
     }
 
-    private boolean isFormValid() {
-        boolean isValid = !txtNombre.getText().trim().isEmpty() && !txtTelefono.getText().trim().isEmpty() && !txtDireccion.getText().trim().isEmpty();
-        
-        System.out.println(isValid);
-        
-        return isValid;
-    }
-
     private void btnGrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGrabarActionPerformed
-        if (!isFormValid()) {
-            JOptionPane.showMessageDialog(pPrincipal, "Todos los campos marcados con * son obligatorios.", "Hay campos requeridos en blanco", JOptionPane.WARNING_MESSAGE);
-        } else {
+        Map<JComponent, String> errors = FormValidator.validateForm(txtNombre, txtTelefono, txtDireccion);
+
+        if (errors.isEmpty()) {
             int confirmacion = JOptionPane.showConfirmDialog(pPrincipal, "¿Está seguro que desea editar el contacto?", "Editando...", JOptionPane.YES_NO_OPTION);
 
             if (confirmacion == 0) {
@@ -216,6 +211,8 @@ public class EditCuidador extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(pPrincipal, "Algo fue mal...", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
+        } else {
+            JOptionPane.showMessageDialog(pPrincipal, "Todos los campos marcados con * son obligatorios.", "Hay campos requeridos en blanco", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_btnGrabarActionPerformed
 

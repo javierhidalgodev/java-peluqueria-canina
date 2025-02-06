@@ -6,8 +6,12 @@ package com.mycompany.peluqueriacanina.igu;
 
 import com.mycompany.peluqueriacanina.logica.Controladora;
 import com.mycompany.peluqueriacanina.logica.Cuidador;
+import com.mycompany.peluqueriacanina.utils.FormValidator;
+import java.util.Map;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.border.Border;
 
 /**
  *
@@ -80,25 +84,25 @@ public class CargaMascota extends javax.swing.JFrame {
         );
 
         lNombre.setLabelFor(txtNombre);
-        lNombre.setText("Nombre:");
+        lNombre.setText("Nombre* :");
 
         lRaza.setLabelFor(txtRaza);
-        lRaza.setText("Raza:");
+        lRaza.setText("Raza* :");
 
         lColor.setLabelFor(txtColor);
-        lColor.setText("Color:");
+        lColor.setText("Color* :");
 
         lAlergico.setLabelFor(comboAlergico);
-        lAlergico.setText("Alérgico:");
+        lAlergico.setText("Alérgico* :");
 
         lAtencionEspecial.setLabelFor(comboAtencionEspecial);
-        lAtencionEspecial.setText("Atención especial:");
+        lAtencionEspecial.setText("Atención especial* :");
 
         lDNIDuenio.setLabelFor(txtDNIDuenio);
-        lDNIDuenio.setText("DNI dueño");
+        lDNIDuenio.setText("DNI dueño* :");
 
         lObservaciones.setLabelFor(txtObservaciones);
-        lObservaciones.setText("Observaciones:");
+        lObservaciones.setText("Observaciones* :");
 
         comboAlergico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "Sí", "No" }));
 
@@ -138,7 +142,7 @@ public class CargaMascota extends javax.swing.JFrame {
                             .addGroup(pFormLayout.createSequentialGroup()
                                 .addComponent(comboAtencionEspecial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE))))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         pFormLayout.setVerticalGroup(
@@ -184,7 +188,7 @@ public class CargaMascota extends javax.swing.JFrame {
             .addGroup(pImageLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(iCompany)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         pImageLayout.setVerticalGroup(
             pImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -300,7 +304,9 @@ public class CargaMascota extends javax.swing.JFrame {
     }
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        if (!isFormValid()) {
+        Map<JComponent, String> errors = FormValidator.validateForm(txtNombre, txtRaza, txtColor, comboAlergico, comboAtencionEspecial, txtObservaciones, txtDNIDuenio);
+
+        if (errors.isEmpty()) {
             // 1. Se recupera la data del formulario
             int idCliente = 0;
             String color = txtColor.getText();

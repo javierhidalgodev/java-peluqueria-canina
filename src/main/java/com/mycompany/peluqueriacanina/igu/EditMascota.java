@@ -2,6 +2,9 @@ package com.mycompany.peluqueriacanina.igu;
 
 import com.mycompany.peluqueriacanina.logica.Controladora;
 import com.mycompany.peluqueriacanina.logica.Mascota;
+import com.mycompany.peluqueriacanina.utils.FormValidator;
+import java.util.Map;
+import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,8 +17,7 @@ public class EditMascota extends javax.swing.JFrame {
     Mascota mascota = null;
     VerMascotas ventanaAnterior = null;
 
-    public EditMascota(Controladora controladora, Mascota
-            mascota, VerMascotas ventanaAnterior) {
+    public EditMascota(Controladora controladora, Mascota mascota, VerMascotas ventanaAnterior) {
         this.controladora = controladora;
         this.mascota = mascota;
         this.ventanaAnterior = ventanaAnterior;
@@ -30,7 +32,7 @@ public class EditMascota extends javax.swing.JFrame {
         txtRaza.setText(mascota.getRaza());
         txtColor.setText(mascota.getColor());
         comboAlergico.setSelectedIndex(mascota.isAlergico() ? 0 : 1);
-        comboAtencionEspecial.setSelectedIndex(mascota.isAtencion_especial()? 0 : 1);
+        comboAtencionEspecial.setSelectedIndex(mascota.isAtencion_especial() ? 0 : 1);
         txtaObservaciones.setText(mascota.getObservaciones());
     }
 
@@ -91,6 +93,12 @@ public class EditMascota extends javax.swing.JFrame {
 
         lNombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lNombre.setText("Nombre* :");
+
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
 
         lRaza.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lRaza.setText("Raza* :");
@@ -245,35 +253,49 @@ public class EditMascota extends javax.swing.JFrame {
     }
 
     private void btnGrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGrabarActionPerformed
-        int confirmacion = JOptionPane.showConfirmDialog(pPrincipal, "¿Está seguro que desea editar la mascota?", "Editando...", JOptionPane.YES_NO_OPTION);
+        Map<JComponent, String> errors = FormValidator.validateForm(txtNombre, txtRaza, txtColor, comboAlergico, comboAtencionEspecial, txtaObservaciones);
 
-        if (confirmacion == 0) {
-            String nombre = txtNombre.getText();
-            String raza = txtRaza.getText();
-            String color = txtColor.getText();
-            String alergico = String.valueOf(comboAlergico.getSelectedItem());
-            String atencionEspecial = String.valueOf(comboAtencionEspecial.getSelectedItem());
-            String observaciones = txtaObservaciones.getText();
-            
-            mascota.setNombre_mascota(nombre);
-            mascota.setRaza(raza);
-            mascota.setColor(color);
-            mascota.setAlergico(alergico.equals("Sí") ? true : false);
-            mascota.setAtencion_especial(atencionEspecial.equals("Sí") ? true : false);
-            mascota.setObservaciones(observaciones);
+        if (errors.isEmpty()) {
+            int confirmacion = JOptionPane.showConfirmDialog(pPrincipal, "¿Está seguro que desea editar la mascota?", "Editando...", JOptionPane.YES_NO_OPTION);
 
-            try {
-                controladora.editarMascota(mascota);
-                ventanaAnterior.setEnabled(true);
-                ventanaAnterior.initTable();
+            if (confirmacion == 0) {
+                String nombre = txtNombre.getText();
+                String raza = txtRaza.getText();
+                String color = txtColor.getText();
+                String alergico = String.valueOf(comboAlergico.getSelectedItem());
+                String atencionEspecial = String.valueOf(comboAtencionEspecial.getSelectedItem());
+                String observaciones = txtaObservaciones.getText();
 
-                JOptionPane.showMessageDialog(pPrincipal, "Mascota editada correctamente", "Edición completada", JOptionPane.INFORMATION_MESSAGE);
-                dispose();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(pPrincipal, "Algo fue mal...", "Error", JOptionPane.ERROR_MESSAGE);
+                mascota.setNombre_mascota(nombre);
+                mascota.setRaza(raza);
+                mascota.setColor(color);
+                mascota.setAlergico(alergico.equals("Sí") ? true : false);
+                mascota.setAtencion_especial(atencionEspecial.equals("Sí") ? true : false);
+                mascota.setObservaciones(observaciones);
+
+                try {
+                    controladora.editarMascota(mascota);
+                    ventanaAnterior.setEnabled(true);
+                    ventanaAnterior.initTable();
+
+                    JOptionPane.showMessageDialog(pPrincipal, "Mascota editada correctamente", "Edición completada", JOptionPane.INFORMATION_MESSAGE);
+                    dispose();
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(pPrincipal, "Algo fue mal...", "Error", JOptionPane.ERROR_MESSAGE);
+                }
             }
+        } else {
+            for (Map.Entry<JComponent, String> entry : errors.entrySet()) {
+                entry.getKey().setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
+            }
+            
+            JOptionPane.showMessageDialog(pPrincipal, "Todos los campos marcados con * son obligatorios.", "Hay campos requeridos en blanco", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_btnGrabarActionPerformed
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGrabar;

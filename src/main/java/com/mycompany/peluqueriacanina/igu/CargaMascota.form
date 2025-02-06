@@ -135,7 +135,7 @@
                                       <Component id="comboAtencionEspecial" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="jScrollPane1" pref="324" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane1" pref="332" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -192,7 +192,7 @@
                 <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
                   <ComponentRef name="txtNombre"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Nombre:"/>
+                <Property name="text" type="java.lang.String" value="Nombre* :"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lRaza">
@@ -200,7 +200,7 @@
                 <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
                   <ComponentRef name="txtRaza"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Raza:"/>
+                <Property name="text" type="java.lang.String" value="Raza* :"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lColor">
@@ -208,7 +208,7 @@
                 <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
                   <ComponentRef name="txtColor"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Color:"/>
+                <Property name="text" type="java.lang.String" value="Color* :"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lAlergico">
@@ -216,7 +216,7 @@
                 <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
                   <ComponentRef name="comboAlergico"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Al&#xe9;rgico:"/>
+                <Property name="text" type="java.lang.String" value="Al&#xe9;rgico* :"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lAtencionEspecial">
@@ -224,7 +224,7 @@
                 <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
                   <ComponentRef name="comboAtencionEspecial"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Atenci&#xf3;n especial:"/>
+                <Property name="text" type="java.lang.String" value="Atenci&#xf3;n especial* :"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lDNIDuenio">
@@ -232,7 +232,7 @@
                 <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
                   <ComponentRef name="txtDNIDuenio"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="DNI due&#xf1;o"/>
+                <Property name="text" type="java.lang.String" value="DNI due&#xf1;o* :"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lObservaciones">
@@ -240,7 +240,7 @@
                 <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
                   <ComponentRef name="txtObservaciones"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Observaciones:"/>
+                <Property name="text" type="java.lang.String" value="Observaciones* :"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtNombre">
@@ -304,7 +304,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="iCompany" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="31" max="32767" attributes="0"/>
+                      <EmptySpace pref="15" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

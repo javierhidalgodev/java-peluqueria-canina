@@ -1,6 +1,6 @@
 package com.mycompany.peluqueriacanina.igu;
 
-import com.mycompany.peluqueriacanina.igu.utils.FormValidator;
+import com.mycompany.peluqueriacanina.utils.FormValidator;
 import com.mycompany.peluqueriacanina.logica.Controladora;
 import com.mycompany.peluqueriacanina.logica.Cuidador;
 import java.util.Map;
